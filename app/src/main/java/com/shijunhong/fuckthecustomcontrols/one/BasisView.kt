@@ -1,10 +1,7 @@
 package com.shijunhong.fuckthecustomcontrols.one
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 
@@ -75,12 +72,25 @@ class BasisView : View {
 
 
         //矩阵
-        val rect = Rect(10,10,100,100)
+//        val rect = Rect(10,10,100,100)
+//        val paint = Paint()
+//        paint.color = Color.RED
+//        paint.style = Paint.Style.STROKE
+//        paint.strokeWidth = 5f
+//        canvas.drawRect(rect,paint)
+
+        //直线路径
         val paint = Paint()
         paint.color = Color.RED
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 5f
-        canvas.drawRect(rect,paint)
+
+        val path = Path()
+        path.moveTo(10f,10f)  //设定起始点
+        path.lineTo(10f,100f) //第一条直线的终点,第二条直线的起点
+        path.lineTo(300f,100f)//第二条直线
+        path.close()                //闭环
+        canvas.drawPath(path, paint)
 
     }
 }
