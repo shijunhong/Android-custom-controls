@@ -80,17 +80,29 @@ class BasisView : View {
 //        canvas.drawRect(rect,paint)
 
         //直线路径
+//        val paint = Paint()
+//        paint.color = Color.RED
+//        paint.style = Paint.Style.STROKE
+//        paint.strokeWidth = 5f
+//
+//        val path = Path()
+//        path.moveTo(10f,10f)  //设定起始点
+//        path.lineTo(10f,100f) //第一条直线的终点,第二条直线的起点
+//        path.lineTo(300f,100f)//第二条直线
+//        path.close()                //闭环
+//        canvas.drawPath(path, paint)
+
+
+        //弧线路径
         val paint = Paint()
         paint.color = Color.RED
-        paint.style = Paint.Style.STROKE
+        paint.style = Paint.Style.FILL_AND_STROKE
         paint.strokeWidth = 5f
-
         val path = Path()
-        path.moveTo(10f,10f)  //设定起始点
-        path.lineTo(10f,100f) //第一条直线的终点,第二条直线的起点
-        path.lineTo(300f,100f)//第二条直线
-        path.close()                //闭环
-        canvas.drawPath(path, paint)
+        path.moveTo(10f,10f)
+        val rectF = RectF(0f,10f,1000f,200f)
+        path.arcTo(rectF,0f,180f,true)
+        canvas.drawPath(path,paint)
 
     }
 }
