@@ -33,16 +33,19 @@ class BasisView : View {
 //        STROKE  描边
 
 
-        val paint = Paint()
-        paint.color = Color.RED
-        paint.strokeWidth = 10f
-        paint.style = Paint.Style.FILL
-        canvas.drawCircle(190f,120f,100f,paint)
+//        val paint = Paint()
+//        paint.color = Color.RED
+//        paint.strokeWidth = 10f
+//        paint.style = Paint.Style.FILL
+//        canvas.drawCircle(190f,120f,100f,paint)
+//
+//        paint.style = Paint.Style.FILL_AND_STROKE
+//        canvas.drawCircle(190f,400f,100f,paint)
+//
+//        paint.style = Paint.Style.STROKE
+//        canvas.drawCircle(190f,700f,100f,paint)
 
-        paint.style = Paint.Style.FILL_AND_STROKE
-        canvas.drawCircle(190f,400f,100f,paint)
-
-        paint.style = Paint.Style.STROKE
-        canvas.drawCircle(190f,700f,100f,paint)
+        //设置画布颜色
+        canvas.drawColor(Color.rgb(255,0,255))
     }
 }
