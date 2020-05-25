@@ -104,19 +104,31 @@ class BasisView : View {
 //        path.arcTo(rectF,0f,180f,true)
 //        canvas.drawPath(path,paint)
 
-        //区域
-        val paint = Paint()
-        paint.style = Paint.Style.FILL
-        paint.color = Color.RED
+//        //区域
+//        val paint = Paint()
+//        paint.style = Paint.Style.FILL
+//        paint.color = Color.RED
+//
+//        //构造一个椭圆形
+//        val ovalPath = Path()
+//        val rectF = RectF(50f,50f,200f,500f)
+//        ovalPath.addOval(rectF,Path.Direction.CCW)
+//        //在paht函数中传入一个比椭圆形区域小的矩形区域,取交集
+//        val rgn = Region()
+//        rgn.setPath(ovalPath,Region(50,50,100,250))
+//        drawRegion(canvas,rgn,paint)
 
-        //构造一个椭圆形
-        val ovalPath = Path()
-        val rectF = RectF(50f,50f,200f,500f)
-        ovalPath.addOval(rectF,Path.Direction.CCW)
-        //在paht函数中传入一个比椭圆形区域小的矩形区域,取交集
-        val rgn = Region()
-        rgn.setPath(ovalPath,Region(50,50,100,250))
-        drawRegion(canvas,rgn,paint)
+
+        //区域相交  union
+        val paint = Paint()
+        paint.color = Color.RED
+        paint.style = Paint.Style.FILL
+
+        val region = Region(10,10,200,100)
+        region.union(Rect(10,10,50,300))
+        drawRegion(canvas,region,paint)
+
+
     }
 
     private fun drawRegion(canvas: Canvas,rgn:Region,paint: Paint){
