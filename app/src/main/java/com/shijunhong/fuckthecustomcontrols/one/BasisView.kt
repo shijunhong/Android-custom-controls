@@ -94,15 +94,39 @@ class BasisView : View {
 
 
         //弧线路径
-        val paint = Paint()
-        paint.color = Color.RED
-        paint.style = Paint.Style.FILL_AND_STROKE
-        paint.strokeWidth = 5f
-        val path = Path()
-        path.moveTo(10f,10f)
-        val rectF = RectF(0f,10f,1000f,200f)
-        path.arcTo(rectF,0f,180f,true)
-        canvas.drawPath(path,paint)
+//        val paint = Paint()
+//        paint.color = Color.RED
+//        paint.style = Paint.Style.FILL_AND_STROKE
+//        paint.strokeWidth = 5f
+//        val path = Path()
+//        path.moveTo(10f,10f)
+//        val rectF = RectF(0f,10f,1000f,200f)
+//        path.arcTo(rectF,0f,180f,true)
+//        canvas.drawPath(path,paint)
 
+        //区域
+        val paint = Paint()
+        paint.style = Paint.Style.FILL
+        paint.color = Color.RED
+
+        //构造一个椭圆形
+        val ovalPath = Path()
+        val rectF = RectF(50f,50f,200f,500f)
+        ovalPath.addOval(rectF,Path.Direction.CCW)
+        //在paht函数中传入一个比椭圆形区域小的矩形区域,取交集
+        val rgn = Region()
+        rgn.setPath(ovalPath,Region(50,50,100,250))
+        drawRegion(canvas,rgn,paint)
     }
+
+    private fun drawRegion(canvas: Canvas,rgn:Region,paint: Paint){
+        val iter = RegionIterator(rgn)
+        val  rect = Rect()
+        while (iter.next(rect)){
+            canvas.drawRect(rect,paint)
+        }
+    }
+
+
+
 }
