@@ -47,5 +47,24 @@ class BasisView : View {
 
         //设置画布颜色
         canvas.drawColor(Color.rgb(255,0,255))
+
+        //画直线  直线的粗细与画笔的style无关.之与strokeWidth有关
+        val paint = Paint()
+        paint.color = Color.BLACK
+        paint.strokeWidth = 50f
+        paint.style = Paint.Style.FILL_AND_STROKE
+        canvas.drawLine(100f,100f,200f,200f,paint)
+
+        paint.style = Paint.Style.FILL
+        canvas.drawLine(100f,200f,400f,400f,paint)
+
+        paint.style = Paint.Style.STROKE
+        canvas.drawLine(100f,300f,600f,600f,paint)
+
+        paint.strokeWidth = 10f
+        paint.style = Paint.Style.STROKE
+        canvas.drawLine(100f,400f,600f,800f,paint)
+
+
     }
 }
