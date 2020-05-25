@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 
@@ -67,11 +68,19 @@ class BasisView : View {
 
 
         //画点
-        val paint = Paint()
-        paint.color = Color.BLACK
-        paint.strokeWidth = 10f
-        canvas.drawPoint(100f,100f,paint)
+//        val paint = Paint()
+//        paint.color = Color.BLACK
+//        paint.strokeWidth = 10f
+//        canvas.drawPoint(100f,100f,paint)
 
+
+        //矩阵
+        val rect = Rect(10,10,100,100)
+        val paint = Paint()
+        paint.color = Color.RED
+        paint.style = Paint.Style.STROKE
+        paint.strokeWidth = 5f
+        canvas.drawRect(rect,paint)
 
     }
 }
